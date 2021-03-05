@@ -107,6 +107,13 @@ console.log(
   )
 );
 
+/*
+Exercise 7
+Write a function called extractValue which accepts an array of objects and a key and returns a new array with the value of each object at the key.
+
+*/
+
+
 function extractValue(array, key) {
   return array
     .filter((el) => {
@@ -126,7 +133,7 @@ console.log(
 
 
 /*
-Exercise 8
+Exercise 9
 Write a function called hasNoDuplicates which accepts an array and returns true if there are no duplicate values (more than one element in the array that has the same value as another). If there are any duplicates, the function should return false.
 
 */
@@ -140,8 +147,7 @@ function hasNoDuplicates(array) {
       duplicates.push(tempArray[i]);
     }
   });
-  if (duplicates.length > 0) return true;
-  return false;
+  return duplicates.length > 0 ? true : false;
 }
 
 console.log(hasNoDuplicates([1, 2, 3]));
