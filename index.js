@@ -91,9 +91,13 @@ Write a function called extractKey which accepts an array of objects and some ke
 */
 
 function extractKey(array, key) {
-  return array.map((el) => {
-    if (el.hasOwnProperty(key)) return el[key];
-  });
+  return array
+    .filter((el) => {
+      if (el.hasOwnProperty(key)) return el[key];
+    })
+    .map((el) => {
+      return el[key];
+    });
 }
 
 // extractKey(
@@ -106,3 +110,25 @@ console.log(
     "name"
   )
 );
+
+function extractValue(array, key) {
+  return array
+    .filter((el) => {
+      if (el.hasOwnProperty(key)) return el[key];
+    })
+    .map((el) => {
+      return el[key];
+    });
+}
+
+// extractValue(
+//   [{ name: "Elie" }, { name: "Tim" }, { name: "Matt" }, { name: "Colt" }],
+//   "name"
+// );
+console.log(
+  extractValue(
+    [{ name: "Elie" }, { name: "Tim" }, { name: "Matt" }, { name: "Colt" }],
+    "name"
+  )
+);
+
