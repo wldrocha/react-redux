@@ -100,10 +100,6 @@ function extractKey(array, key) {
     });
 }
 
-// extractKey(
-//   [{ name: "Elie" }, { name: "Tim" }, { name: "Matt" }, { name: "Colt" }],
-//   "name"
-// );
 console.log(
   extractKey(
     [{ name: "Elie" }, { name: "Tim" }, { name: "Matt" }, { name: "Colt" }],
@@ -121,10 +117,6 @@ function extractValue(array, key) {
     });
 }
 
-// extractValue(
-//   [{ name: "Elie" }, { name: "Tim" }, { name: "Matt" }, { name: "Colt" }],
-//   "name"
-// );
 console.log(
   extractValue(
     [{ name: "Elie" }, { name: "Tim" }, { name: "Matt" }, { name: "Colt" }],
@@ -132,3 +124,24 @@ console.log(
   )
 );
 
+
+/*
+Exercise 8
+Write a function called hasNoDuplicates which accepts an array and returns true if there are no duplicate values (more than one element in the array that has the same value as another). If there are any duplicates, the function should return false.
+
+*/
+
+function hasNoDuplicates(array) {
+  let duplicates = [];
+  const tempArray = array.sort();
+
+  tempArray.forEach((el, i) => {
+    if (tempArray[i + 1] === tempArray[i]) {
+      duplicates.push(tempArray[i]);
+    }
+  });
+  if (duplicates.length > 0) return true;
+  return false;
+}
+
+console.log(hasNoDuplicates([1, 2, 3]));
