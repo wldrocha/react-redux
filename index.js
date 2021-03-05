@@ -55,3 +55,18 @@ arr = [
 console.log(findInObj(arr, "isCatOwner", true));
 
 
+/*
+Exercise 4
+Write a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercased and lowercased) removed. Every character in the new string should be lowercased.
+
+*/
+
+function removeVowels(string) {
+  const loweString = string.toLowerCase();
+  const newString = loweString.replace(/[a,e,i,o,u]/g, "");
+  return newString;
+}
+
+console.log(removeVowels("Wladimir"));
+
+
