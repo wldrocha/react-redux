@@ -133,6 +133,26 @@ console.log(
 
 
 /*
+Exercise 8
+Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
+
+*/
+
+function vowelCount(string) {
+  const stringLower = string
+    .toLowerCase()
+    .replace(/[^,ae,i,o,u]/g, "")
+    .trim()
+    .split("");
+  return stringLower.reduce((count, element) => {
+    count[element] = (count[element] || 0) + 1;
+    return count;
+  }, {});
+}
+
+console.log(vowelCount("alondra josefa"));
+
+/*
 Exercise 9
 Write a function called hasNoDuplicates which accepts an array and returns true if there are no duplicate values (more than one element in the array that has the same value as another). If there are any duplicates, the function should return false.
 
@@ -151,3 +171,31 @@ function hasNoDuplicates(array) {
 }
 
 console.log(hasNoDuplicates([1, 2, 3]));
+
+/*
+Exercise 10
+Write a function called addKeyAndValue which accepts an array of objects and returns the array of objects passed to it with each object now including the key and value passed to the function.
+
+*/
+
+function addKeyAndValue(array, key, value) {
+  return array.map((element) => {
+    element[key] = value;
+    return element;
+  });
+}
+
+var arr = [
+  { name: "Elie" },
+  { name: "Tim" },
+  { name: "Matt" },
+  { name: "Colt" },
+];
+console.log(
+addKeyAndValue(arr, 'title', 'Instructor') //
+  [
+    {title: 'Instructor', name: 'Elie'},
+    {title: 'Instructor', name: 'Tim'},
+    {title: 'Instructor', name: 'Matt'},
+    {title: 'Instructor', name: 'Colt'}
+   ]);
