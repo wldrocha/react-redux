@@ -4,6 +4,14 @@ Write a function called filterByValue which accepts an array of objects and a ke
 
 */
 function filterByValue(array,key) {
+
+  if (!Array.isArray(array)) {
+    return "el primer parametro no es un array";
+  }
+  if (key.length <= 0) {
+    return "el key debe contener algo para comparar";
+  }
+
   let result = array.filter((element) => {
     if(element.hasOwnProperty(key)) return element
   });
@@ -27,7 +35,10 @@ Write a function called find which accepts an array and a value and returns the 
 */
 
 function find(array, searchValue) {
-  const res = array.find((element) => (element == value ? element : null));
+  if (!Array.isArray(array)) {
+    return "el primer parametro no es un array";
+  }
+  const res = array.find((element) => (element == searchValue ? element : null));
   return res;
 }
 
@@ -41,8 +52,15 @@ Write a function called findInObj which accepts an array of objects, a key, and 
 */
 
 function findInObj(array, key, searchValue) {
+  if (!Array.isArray(array)) {
+    return "el primer parametro no es un array";
+  }
+  if (key.length <= 0) {
+    return "el key debe contener algo para comparar";
+  }
   return array.find((element) => {
-    if (element.hasOwnProperty(key) && element[key]) return element;
+    if (element.hasOwnProperty(key) && element[key] == searchValue)
+      return element;
   });
 }
 
@@ -62,6 +80,7 @@ Write a function called removeVowels which accepts a string and returns a new st
 */
 
 function removeVowels(string) {
+  if (string.length <= 0) return "la cadena debe contener al menos un caracter";
   const loweString = string.toLowerCase();
   const newString = loweString.replace(/[a,e,i,o,u]/g, "");
   return newString;
@@ -77,6 +96,9 @@ Write a function called doubleOddNumbers which accepts an array and returns a ne
 */
 
 function doubleOddNumbers(array) {
+  if (!Array.isArray(array)) {
+    return "el parametro no es un array";
+  }
   const odd = array.filter((elm) => elm % 2);
   const double = odd.map((el) => el * 2);
   return double;
@@ -91,6 +113,7 @@ Write a function called extractKey which accepts an array of objects and some ke
 */
 
 function extractKey(array, key) {
+  if (!Array.isArray(array)) return "el primer parametro no es un array";
   return array
     .filter((el) => {
       if (el.hasOwnProperty(key)) return el[key];
@@ -115,6 +138,7 @@ Write a function called extractValue which accepts an array of objects and a key
 
 
 function extractValue(array, key) {
+if (!Array.isArray(array)) return "el primer parametro no es un array";
   return array
     .filter((el) => {
       if (el.hasOwnProperty(key)) return el[key];
@@ -139,6 +163,7 @@ Write a function called vowelCount which accepts a string and returns an object 
 */
 
 function vowelCount(string) {
+  if (string.length <= 0) return "la cadena debe contener al menos un caracter";
   const stringLower = string
     .toLowerCase()
     .replace(/[^,a,e,i,o,u]/g, "")
@@ -159,6 +184,7 @@ Write a function called hasNoDuplicates which accepts an array and returns true 
 */
 
 function hasNoDuplicates(array) {
+  if (!Array.isArray(array)) return "el primer parametro no es un array";
   let duplicates = [];
   const tempArray = array.sort();
 
@@ -179,6 +205,8 @@ Write a function called addKeyAndValue which accepts an array of objects and ret
 */
 
 function addKeyAndValue(array, key, value) {
+  if (!Array.isArray(array)) return "el primer parametro no es un array";
+  if (key.length <= 0) return "el key debe contener algo para comparar";
   return array.map((element) => {
     element[key] = value;
     return element;
@@ -192,13 +220,7 @@ var arr = [
   { name: "Colt" },
 ];
 console.log(
-addKeyAndValue(arr, 'title', 'Instructor') //
-  [
-    {title: 'Instructor', name: 'Elie'},
-    {title: 'Instructor', name: 'Tim'},
-    {title: 'Instructor', name: 'Matt'},
-    {title: 'Instructor', name: 'Colt'}
-   ]);
+addKeyAndValue(arr, 'title', 'Instructor'))
 
 
 /*
@@ -208,6 +230,8 @@ Write a function called partition which accepts an array and a callback and retu
 */
 
 function partition(arr,callback) {
+  if (!Array.isArray(arr)) return "el primer parametro no es un array";
+  if (typeof callback != "function") return "el primer parametro no es un funcion";
   let firstArray = []
   let secondArray = []
 
@@ -232,6 +256,7 @@ Write a function called partition which accepts an array and a callback and retu
 */
 
 function hasCertainKey(array, key) {
+  if (!Array.isArray(array)) return "el primer parametro no es un array";
   for (const ele of array) {
     if (!ele.hasOwnProperty(key)) {
       return false;
