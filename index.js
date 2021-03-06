@@ -141,7 +141,7 @@ Write a function called vowelCount which accepts a string and returns an object 
 function vowelCount(string) {
   const stringLower = string
     .toLowerCase()
-    .replace(/[^,ae,i,o,u]/g, "")
+    .replace(/[^,a,e,i,o,u]/g, "")
     .trim()
     .split("");
   return stringLower.reduce((count, element) => {
@@ -223,3 +223,26 @@ function isEven(val){
 var arr = [1,2,3,4,5,6,7,8];
 
 console.log(partition(arr, isEven));
+
+
+/*
+Exercise 12
+Write a function called partition which accepts an array and a callback and returns an array with two arrays inside of it. The partition function should run the callback function on each value in the array and if the result of the callback function at that specific value is true, the value should be placed in the first subarray. If the result of the callback function at that specific value is false, the value should be placed in the second subarray.
+
+*/
+
+function hasCertainKey(array, key) {
+  for (const ele of array) {
+    if (!ele.hasOwnProperty(key)) {
+      return false;
+    }
+  }
+  return true;
+}
+var arr = [
+  { title: "Instructor", last: "Schoppik" },
+  { title: "Instructor", last: "Garcia", isCatOwner: true },
+  { title: "Instructor", last: "Lane" },
+  { title: "Instructor", last: "Steele", isCatOwner: true },
+];
+console.log(hasCertainKey(arr, "hola"));
