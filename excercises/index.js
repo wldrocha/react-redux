@@ -158,7 +158,7 @@ console.log(
 
 /*
 Exercise 8
-Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel appears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
+Write a function called vowelCount which accepts a string and returns an object with the keys as the vowel and the values as the number of times the vowel Principalears in the string. This function should be case insensitive so a lowercase letter and uppercase letter should count
 
 */
 
