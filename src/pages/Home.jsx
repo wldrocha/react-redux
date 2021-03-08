@@ -1,8 +1,6 @@
 import React, { Fragment } from "react";
-import { Link } from 'react-router-dom';
-import "../assets/styles/components/InfoText.scss";
+import "../assets/styles/components/Card.scss";
 import CreditCard from "../components/CreditCard";
-import InfoText from "../components/InfoText";
 import Card from "../components/Card";
 
 const Home = () => {
@@ -11,7 +9,21 @@ const Home = () => {
     title: "Be Smart Take Card",
     parraphText:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.",
+    link: "users",
+    linkText: "User list",
+    textAling: "center"
   };
+
+  let card = [
+    {
+      subtitle: "loreLorem ipsum dolor sit ametm",
+      text:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.",
+    },
+  ];
+
+
+
 
   let infoCards = [
     {
@@ -25,6 +37,7 @@ const Home = () => {
       title: "Get All Aproveal",
       parraphText:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.",
+      shadow: true
     },
     {
       id: 3,
@@ -34,28 +47,27 @@ const Home = () => {
     },
   ];
 
-  let cards = [{name: "Jhon Doe", phone:"#### #### #### ####" }, {name: "Jhon Doe", phone:"#### #### #### ####" }, {name: "Jhon Doe", phone:"#### #### #### ####" }];
+  let creditCards = [{name: "Jhon Doe", phone:"#### #### #### ####" }, {name: "Jhon Doe", phone:"#### #### #### ####", bg:'cyan' }, {name: "Jhon Doe", phone:"#### #### #### ####", bg:'magenta'}];
+
 
   return (
     <Fragment>
       <div>
-        <InfoText title={hero.title} parraphText={hero.parraphText} />
-        <Link to="/users">Listar Usuarios</Link>
+        <Card {...hero} />
       </div>
-      <CreditCard {...cards[0]} />
+      <CreditCard {...creditCards[0]} />
       {infoCards.map((item) => (
         <Card key={item.id} {...item} />
       ))}
       <section>
-        <InfoText title={hero.title} parraphText={hero.parraphText} />
+        <Card {...hero} />
       </section>
       <section>
-        <InfoText title={hero.title} parraphText={hero.parraphText} />
+        <Card {...hero} />
       </section>
-
       <section>
-        {cards.map((card, index) => (
-          <CreditCard key={index} />
+        {creditCards.map((card, index) => (
+          <CreditCard key={index} {...card}/>
         ))}
       </section>
     </Fragment>

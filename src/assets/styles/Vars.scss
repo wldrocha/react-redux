@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 
 $theme-font: 'Muli', sans-serif;
-$main-color: #8f57fd;
+$purple: #744aa0;
+$blue: #2575fc;
+$green: #27f49a;
+$cyan: #00b2e4;
+$magenta:#ee609c;
 
-$gradient: linear-gradient(32deg, rgba(37,117,252,1) 5%, rgba(116,74,160,1) 41%);
+$gradient-blue-purple: linear-gradient(32deg, $blue 5%, $purple 41%);
+$gradient-cyan-green: linear-gradient(360deg, $cyan 15%, $green 41%);
+$gradient-magenta-cyan: linear-gradient(83deg, $magenta 56%, $cyan 95%);
+
+$shadow: 6px 4px 5px 0px rgb(233 233 233 / 88%);

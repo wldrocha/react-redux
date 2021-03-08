@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import "../assets/styles/components/InfoText.scss";
+import "../assets/styles/components/Card.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getUSerAction } from "../redux/userDucks";
 

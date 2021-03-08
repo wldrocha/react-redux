@@ -1,0 +1,40 @@
+@import '../Vars.scss';
+
+.form-user{
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  position: relative;
+  opacity: 0;
+  height: 0;
+  padding: 0;
+  top: -50px;
+  transition: 3s ease all;
+}
+.input-form{
+  margin: 10px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.button-form{
+  margin:0 5px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+  box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+  cursor: pointer;
+  border: none;
+  background-color: $purple;
+  padding: 10px 30px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.active-form{
+  opacity: 1;
+  height: auto;
+  background: $gradient-cyan-green;
+}

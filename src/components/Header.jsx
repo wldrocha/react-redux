@@ -6,6 +6,11 @@ import burguer_menu from '../assets/static/burguer_menu.png'
 
 const Header = () => {
 
+  function closeMenu(){
+    const check = document.getElementById('check');
+    check.checked = !check.checked;
+  }
+
   return (
     <header className="header">
       <div className="container__images">
@@ -19,10 +24,10 @@ const Header = () => {
       <input type="checkbox" name="check" id="check" />
       <div className="container__options" id="containerOptions">
         <nav className="nav__options">
-          <Link to="/" className="option__items">
+          <Link to="/" className="option__items" onClick={closeMenu}>
             Home
           </Link>
-          <Link to="/users" className="option__items">
+          <Link to="/users" className="option__items" onClick={closeMenu}>
             Usuarios
           </Link>
         </nav>
