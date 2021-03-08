@@ -103,7 +103,7 @@ const CreditCard = ({
           </a>
         </div>
       )}
-      {id && (
+      {id && !rotate && (
         <Fragment>
           <div className={`container ${rotate ? "hide-btn" : ""}`}>
             <button
