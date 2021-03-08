@@ -11,7 +11,8 @@ const Home = () => {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.",
     link: "users",
     linkText: "User list",
-    textAling: "center"
+    textAling: "center",
+    color: 'white'
   };
 
   let card = [
@@ -21,6 +22,15 @@ const Home = () => {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.",
     },
   ];
+
+   let infp = {
+     title: "Be Smart Take Card",
+     parraphText:
+       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.",
+     link: "users",
+     linkText: "User list",
+     textAling: "center",
+   };
 
 
 
@@ -52,7 +62,8 @@ const Home = () => {
 
   return (
     <Fragment>
-      <div>
+      <div className="hero">
+        <div className="hero-bg"></div>
         <Card {...hero} />
       </div>
       <section className="wrapper">
@@ -64,10 +75,10 @@ const Home = () => {
         ))}
       </section>
       <section className="wrapper">
-        <Card {...hero} />
+        <Card {...infp} />
       </section>
       <section className="wrapper">
-        <Card {...hero} />
+        <Card {...infp} />
       </section>
       <section className="wrapper wrapper--slide">
         {creditCards.map((card, index) => (

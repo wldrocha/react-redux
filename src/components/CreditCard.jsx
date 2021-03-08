@@ -112,15 +112,15 @@ const CreditCard = ({
             >
               <i className="fas fa-pencil-alt"></i>
             </button>
-            <button className="button" onClick={setDelete}>
+            <button className="button btn-danger" onClick={setDelete}>
               <i className="fas fa-times"></i>
             </button>
           </div>
-          {activateForm && !rotate &&
-          <Fragment>
-            <Formuser activateForm={activateForm} userId={id} />
-          </Fragment>
-          }
+          {activateForm && !rotate && (
+            <Fragment>
+              <Formuser activateForm={activateForm} userId={id} />
+            </Fragment>
+          )}
         </Fragment>
       )}
     </div>

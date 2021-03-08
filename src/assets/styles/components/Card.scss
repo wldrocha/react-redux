@@ -20,9 +20,18 @@
   border-radius: 5px;
   display: inline-block;
   margin-top: 5px;
+  text-decoration: none;
 }
 
 .card{
   box-shadow: $shadow;
 }
 
+.white{
+  color: #fff;
+}
+
+.btn-white{
+  color: $purple;
+  background: #fff;
+}

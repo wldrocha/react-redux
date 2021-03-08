@@ -72,7 +72,7 @@
     transition: all .2s ease;
   }
 
-  .container:hover{
+  .credit-card:hover, .container:hover {
     opacity: 1;
   }
 
@@ -93,7 +93,20 @@
     padding: 5px;
     border: none;
     cursor: pointer;
+    transition: 0.5s ease all;
   }
+
+  .btn-danger{
+    border: 0.5px solid red;
+    color: red;
+    background: transparent;
+  }
+  .btn-danger:hover{
+    border: 0.5px solid red;
+    color: #fff;
+    background: red;
+  }
+
 
   .bg-blue-purple{
     background: $gradient-blue-purple;
@@ -124,5 +137,8 @@
 @media screen and (min-width: 1024px) {
   .credit-card{
     max-width: 350px;
+  }
+  .container{
+    opacity: 0;
   }
 }
