@@ -1,10 +1,23 @@
 //const
 const initialData = {
-  array: []
+  array: [],
+  user: {
+     id: '',
+      name: '',
+      phone: '',
+      company: '',
+      username: '',
+      email: '',
+      address: {
+        city: ''
+      },
+      website: '',
+  }
 }
 
 //types
 const GET_USERS = "GET_USERS";
+const GET_USER = "GET_USER";
 const DELETE_USER = "DELETE_USER";
 const UPDATE_USER = "UPDATE_USER";
 
@@ -13,7 +26,10 @@ const UPDATE_USER = "UPDATE_USER";
 export default function userReducer(state = initialData, {type, payload}){
   switch(type){
     case GET_USERS:
-    return {...state, array: payload}
+      return {...state, array: payload}
+    case GET_USER:
+      return   {...state,
+      user: state.array.filter((user) => user.id === payload)};
     case DELETE_USER:
       // return {...state.filter((user)=> user.id !== payload)}
       return {
@@ -24,7 +40,7 @@ export default function userReducer(state = initialData, {type, payload}){
     return {
       ...state,
       array: state.array.map((user) =>
-        user.id === action.payload ? (user = action.payload) : user
+        user.id === payload.id ? (user = payload) : user
       ),
     };
     default:
@@ -34,7 +50,7 @@ export default function userReducer(state = initialData, {type, payload}){
 
 //actions
 
-export const getUSerAction = () => async(dispatch, getState) => {
+export const getUSersAction = () => async(dispatch, getState) => {
   try {
     //  if (localStorage.getItem("users")) {
 
@@ -56,9 +72,29 @@ export const getUSerAction = () => async(dispatch, getState) => {
   }
 }
 
+export const getUSerAction = (userId) => (dispatch, getState) => {
+  try {
+    dispatch({
+      type: GET_USER,
+      payload: userId,
+    });
+  } catch (error) {
+    console.error("hubo un error", error);
+  }
+};
+
 export const deletUserAction = (userId) => async (dispatch, getState) => {
   try {
     // localStorage.setItem("usersLoad", true);
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }
+    );
     dispatch({
       type: DELETE_USER,
       payload: userId,
@@ -71,9 +107,18 @@ export const deletUserAction = (userId) => async (dispatch, getState) => {
 export const updateUserAction = (user) => async(dispatch, getState) =>{
   try {
     // localStorage.setItem("usersLoad", true);
+    const response = await fetch(`https://jsonplaceholder.typicode.com/users/${user.id}`, {
+      method: "PUT",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    const userUpdate = await response.json();
+
     dispatch({
       type: UPDATE_USER,
-      payload: user,
+      payload: userUpdate,
     });
   } catch (error) {
     console.error("hubo un error", error);

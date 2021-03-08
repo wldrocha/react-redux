@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "../assets/styles/components/Card.scss";
+import "../assets/styles/Home.scss";
 import CreditCard from "../components/CreditCard";
 import Card from "../components/Card";
 
@@ -30,14 +30,14 @@ const Home = () => {
       id: 1,
       title: "Aplication Online",
       parraphText:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.",
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.",
     },
     {
       id: 2,
       title: "Get All Aproveal",
       parraphText:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.",
-      shadow: true
+      shadow: true,
     },
     {
       id: 3,
@@ -55,19 +55,23 @@ const Home = () => {
       <div>
         <Card {...hero} />
       </div>
-      <CreditCard {...creditCards[0]} />
-      {infoCards.map((item) => (
-        <Card key={item.id} {...item} />
-      ))}
-      <section>
+      <section className="wrapper">
+        <CreditCard {...creditCards[0]} />
+      </section>
+      <section className="wrapper">
+        {infoCards.map((item) => (
+          <Card key={item.id} {...item} />
+        ))}
+      </section>
+      <section className="wrapper">
         <Card {...hero} />
       </section>
-      <section>
+      <section className="wrapper">
         <Card {...hero} />
       </section>
-      <section>
+      <section className="wrapper wrapper--slide">
         {creditCards.map((card, index) => (
-          <CreditCard key={index} {...card}/>
+          <CreditCard key={index} {...card} />
         ))}
       </section>
     </Fragment>

@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import "../assets/styles/components/Card.scss";
+import "../assets/styles/Home.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getUSerAction } from "../redux/userDucks";
+import { getUSersAction } from "../redux/userDucks";
 
 import CreditCard from "../components/CreditCard";
 
@@ -13,17 +14,17 @@ const UserList = () => {
 
   const users = useSelector(store => store.users.array)
   useEffect(() => {
-    dispatch(getUSerAction());
+    dispatch(getUSersAction());
     console.log(users);
   }, [dispatch]);
 
 
   return (
-    <div>
+    <section className="wrapper wrapper--slide">
       {users.map((item) => (
-        <CreditCard key={ item.id} {...item} />
+        <CreditCard key={item.id} {...item} />
       ))}
-    </div>
+    </section>
   );
 };
 

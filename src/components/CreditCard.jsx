@@ -21,7 +21,7 @@ const CreditCard = ({
 }) => {
   const dispatch = useDispatch();
 
-  console.log("bg", bg);
+
   function bgColor(bg) {
     switch (bg) {
       case "cyan":
@@ -37,7 +37,7 @@ const CreditCard = ({
    const [activateForm, setActivateForm] = useState(false);
 
   const setDelete = () =>{
-    console.log('eliminando')
+    dispatch(deletUserAction(id));
   }
 
 
@@ -116,9 +116,9 @@ const CreditCard = ({
               <i className="fas fa-times"></i>
             </button>
           </div>
-          {activateForm &&
+          {activateForm && !rotate &&
           <Fragment>
-            <Formuser activateForm={activateForm} />
+            <Formuser activateForm={activateForm} userId={id} />
           </Fragment>
           }
         </Fragment>

@@ -12,3 +12,7 @@ $gradient-cyan-green: linear-gradient(360deg, $cyan 15%, $green 41%);
 $gradient-magenta-cyan: linear-gradient(83deg, $magenta 56%, $cyan 95%);
 
 $shadow: 6px 4px 5px 0px rgb(233 233 233 / 88%);
+
+*{
+  outline: none;
+}

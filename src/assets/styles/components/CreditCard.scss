@@ -2,6 +2,7 @@
 .credit-card {
 
   max-width: 550px;
+  width: 100%;
   color: #fff;
   position: relative;
   transition: .3s ease all;
@@ -9,105 +10,119 @@
   cursor: pointer;
   z-index: 2;
   margin: 15px 5px;
+
+  .front, .back{
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+  }
+
+  .back{
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+  }
+
+  .brand {
+    text-align: right;
+    // min-height: 50px;
+    margin: 0;
+  }
+
+  .brand img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 80px;
+  }
+
+   .chip {
+    width: 100%;
+    max-width: 10%;
+    // margin-bottom: 20px;
+  }
+
+  .info__bottom{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .label-info__group{
+    font-size: 0.7rem;
+    color: #dcdcdc;
+    // margin-bottom: 5px;
+    margin: 5px 0 0 0;
+  }
+
+  .text-info__group{
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    // opacity: 0;
+    transition: all .2s ease;
+  }
+
+  .container:hover{
+    opacity: 1;
+  }
+
+
+  .button{
+    width: 50px;
+    height: 50px;
+    margin:0 5px;
+    font-size: 20px;
+    line-height: 20px;
+    background: #2364d2;
+    color: #fff;
+    position: relative;
+    top: -25px;
+    z-index: 3;
+    border-radius: 100%;
+    box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .bg-blue-purple{
+    background: $gradient-blue-purple;
+  }
+  .bg-cyan-green{
+    background: $gradient-cyan-green;
+  }
+  .bg-magent-cyan{
+    background: $gradient-magenta-cyan;
+  }
+
+  .hide-btn{
+    opacity: 0;
+  }
+
 }
 .credit-card.active{
   transform: rotateY(180deg);
 }
 
-.front, .back{
-  width: 100%;
-  border-radius: 10px;
-  padding: 20px;
-  min-height: 240px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
+
+@media screen and (max-width: 768px) {
+  .credit-card{
+    max-width: 350px;
+  }
 }
 
-.back{
-  position: absolute;
-  top: 0;
-  transform: rotateY(180deg);
-  backface-visibility: hidden;
-}
-
-.brand {
-  text-align: right;
-  // min-height: 50px;
-  margin: 0;
-}
-
-.brand img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  max-width: 80px;
-}
-
- .chip {
-  width: 100%;
-  max-width: 10%;
-  // margin-bottom: 20px;
-}
-
-.info__bottom{
-  display: flex;
-  justify-content: space-between;
-}
-
-.label-info__group{
-  font-size: 0.7rem;
-  color: #dcdcdc;
-  // margin-bottom: 5px;
-  margin: 5px 0 0 0;
-}
-
-.text-info__group{
-  color: #fff;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-}
-
-.container{
-  display: flex;
-  justify-content: center;
-  // opacity: 0;
-  transition: all .2s ease;
-}
-
-.container:hover{
-  opacity: 1;
-}
-
-
-.button{
-  width: 50px;
-  height: 50px;
-  margin:0 5px;
-  font-size: 20px;
-  line-height: 20px;
-  background: #2364d2;
-  color: #fff;
-  position: relative;
-  top: -25px;
-  z-index: 3;
-  border-radius: 100%;
-  box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
-  padding: 5px;
-  border: none;
-  cursor: pointer;
-}
-
-.bg-blue-purple{
-  background: $gradient-blue-purple;
-}
-.bg-cyan-green{
-  background: $gradient-cyan-green;
-}
-.bg-magent-cyan{
-  background: $gradient-magenta-cyan;
-}
-
-.hide-btn{
-  opacity: 0;
+@media screen and (min-width: 1024px) {
+  .credit-card{
+    max-width: 350px;
+  }
 }

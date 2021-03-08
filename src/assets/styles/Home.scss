@@ -1,0 +1,14 @@
+.wrapper{
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+.wrapper--slide{
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper{
+     flex-wrap: wrap;
+  }
+}
