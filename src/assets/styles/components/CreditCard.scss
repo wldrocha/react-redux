@@ -30,7 +30,6 @@
 
   .brand {
     text-align: right;
-    // min-height: 50px;
     margin: 0;
   }
 
@@ -44,7 +43,6 @@
    .chip {
     width: 100%;
     max-width: 10%;
-    // margin-bottom: 20px;
   }
 
   .info__bottom{
@@ -55,7 +53,6 @@
   .label-info__group{
     font-size: 0.7rem;
     color: #dcdcdc;
-    // margin-bottom: 5px;
     margin: 5px 0 0 0;
   }
 
@@ -68,13 +65,10 @@
   .container{
     display: flex;
     justify-content: center;
-    // opacity: 0;
     transition: all .2s ease;
   }
 
-  .credit-card:hover, .container:hover {
-    opacity: 1;
-  }
+
 
 
   .button{
@@ -132,6 +126,9 @@
   .credit-card{
     max-width: 350px;
   }
+  .credit-card:hover, .container {
+    opacity: 1;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -140,5 +137,8 @@
   }
   .container{
     opacity: 0;
+  }
+  .credit-card:hover >.container {
+    opacity: 1;
   }
 }
