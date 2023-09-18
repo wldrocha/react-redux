@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect } from "react";
 import "../assets/styles/components/Card.scss";
-import "../assets/styles/Home.scss";
+// import "../assets/styles/Home.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { getUSersAction } from "../redux/userDucks";
 

@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "../assets/styles/Home.scss";
+// import "../assets/styles/Home.scss";
 import CreditCard from "../components/CreditCard";
 import Card from "../components/Card";
 
