@@ -1,26 +1,13 @@
-// import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-// import thunk from 'redux-thunk';
 
-// import userReducer from './userDucks'
-
-// const rootReducer = combineReducers({
-//   users : userReducer
-// })
-
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-// export default function generateStore() {
-//   const store = createStore(
-//     rootReducer,
-//     composeEnhancers(applyMiddleware(thunk))
-//   );
-//   return store;
-// }
 
 import { configureStore } from '@reduxjs/toolkit'
+import { userApi } from '../services/UserApi'
 
 export const store = configureStore({
   reducer: {
     // users: authSlice.reducer,
-  }
+    [userApi.reducerPath]: userApi.reducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware({}).concat([userApi.middleware]),
 })
