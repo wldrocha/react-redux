@@ -1,17 +1,23 @@
 @import '../Vars.scss';
 .credit-card {
-
-  max-width: 550px;
+  max-width: 350px;
   width: 100%;
   color: #fff;
   position: relative;
-  transition: .3s ease all;
+  transition: 0.3s ease all;
   transform-style: preserve-3d;
-  cursor: pointer;
+
   z-index: 2;
   margin: 15px 5px;
+  .pointer {
+    cursor: pointer;
+  }
+  .container__button {
+    height: 0.4rem;
+  }
 
-  .front, .back{
+  .front,
+  .back {
     width: 100%;
     border-radius: 10px;
     padding: 20px;
@@ -21,7 +27,7 @@
     box-shadow: 0 10px 10px 0 rgba(90, 116, 148, 0.3);
   }
 
-  .back{
+  .back {
     position: absolute;
     top: 0;
     transform: rotateY(180deg);
@@ -40,41 +46,38 @@
     max-width: 80px;
   }
 
-   .chip {
+  .chip {
     width: 100%;
     max-width: 10%;
   }
 
-  .info__bottom{
+  .info__bottom {
     display: flex;
     justify-content: space-between;
   }
 
-  .label-info__group{
+  .label-info__group {
     font-size: 0.7rem;
     color: #dcdcdc;
     margin: 5px 0 0 0;
   }
 
-  .text-info__group{
+  .text-info__group {
     color: #fff;
     font-size: 0.8rem;
     text-transform: uppercase;
   }
 
-  .container{
+  .container {
     display: flex;
     justify-content: center;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
   }
 
-
-
-
-  .button{
+  .button {
     width: 50px;
     height: 50px;
-    margin:0 5px;
+    margin: 0 5px;
     font-size: 20px;
     line-height: 20px;
     background: #2364d2;
@@ -83,62 +86,65 @@
     top: -25px;
     z-index: 3;
     border-radius: 100%;
-    box-shadow: -5px 4px 8px rgba(24,56,182,0.4);
+    box-shadow: -5px 4px 8px rgba(24, 56, 182, 0.4);
     padding: 5px;
     border: none;
     cursor: pointer;
     transition: 0.5s ease all;
+    &:hover {
+      background-color: #1c51a9;
+    }
   }
 
-  .btn-danger{
+  .btn-danger {
     border: 0.5px solid red;
-    color: red;
-    background: transparent;
-  }
-  .btn-danger:hover{
-    border: 0.5px solid red;
-    color: #fff;
     background: red;
+    &:hover {
+      border: 0.5px solid #d80000;
+      color: #fff;
+      background: #d80000;
+    }
   }
 
-
-  .bg-blue-purple{
+  .bg-blue-purple {
     background: $gradient-blue-purple;
   }
-  .bg-cyan-green{
+  .bg-cyan-green {
     background: $gradient-cyan-green;
   }
-  .bg-magent-cyan{
+  .bg-magent-cyan {
     background: $gradient-magenta-cyan;
   }
 
-  .hide-btn{
+  .hide-btn {
     opacity: 0;
   }
-
 }
-.credit-card.active{
+.credit-card.active {
   transform: rotateY(180deg);
+  &:hover .container__button {
+    opacity: 0;
+  }
 }
-
 
 @media screen and (max-width: 768px) {
-  .credit-card{
+  .credit-card {
     max-width: 350px;
   }
-  .credit-card:hover, .container {
+  .credit-card:hover,
+  .container {
     opacity: 1;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  .credit-card{
+  .credit-card {
     max-width: 350px;
   }
-  .container{
+  .container {
     opacity: 0;
   }
-  .credit-card:hover >.container {
+  .credit-card:hover > .container {
     opacity: 1;
   }
 }

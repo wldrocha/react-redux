@@ -1,11 +1,12 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import '../assets/styles/components/CreditCard.scss'
 import logo from '../assets/static/logo.png'
 import card_chip from '../assets/static/card_chip.png'
-import Formuser from '../components/FormUser'
+
+import { MdEdit, MdDelete } from 'react-icons/md'
 
 import { useDeleteUserMutation } from '../services'
-import FormUser from '../components/FormUser'
+import { FormUser } from './FormUser'
 
 const bgColor = {
   cyan: 'cyan-green',
@@ -38,8 +39,7 @@ interface CreditCardProps {
 }
 
 export const CreditCard = ({ id, name, phone, company, username, email, address, website, bg }: CreditCardProps) => {
-  
-  const [rotate, setrotate] = useState(false)
+  const [rotate, setRotate] = useState(false)
   const [activateForm, setActivateForm] = useState(false)
   const [deleteUser] = useDeleteUserMutation()
 
@@ -47,11 +47,15 @@ export const CreditCard = ({ id, name, phone, company, username, email, address,
     deleteUser({ userId: id })
   }
 
+  const handleRotate = () => {
+    id && setRotate(!rotate)
+  }
+
   const background = () => `bg-${bg ? bgColor[bg] : bgColor.default}`
 
   return (
-    <div className={`credit-card ${rotate ? 'active' : ''}`}>
-      <div className={['front', background()].join(' ')} onClick={() => setrotate(!rotate)}>
+    <div className={`credit-card ${rotate ? 'active' : ''} ${id ? 'pointer' : ''} `}>
+      <div className={['front', background()].join(' ')} onClick={() => handleRotate()}>
         <figure className="brand">
           {company && company.name.length > 0 ? <p>{company.name}</p> : <img src={logo} alt="" />}
         </figure>
@@ -77,7 +81,7 @@ export const CreditCard = ({ id, name, phone, company, username, email, address,
         </div>
       </div>
       {id && (
-        <div className={['back', background(bg)].join(' ')} onClick={() => setrotate(!rotate)}>
+        <div className={['back', background()].join(' ')} onClick={() => handleRotate()}>
           <div className="info">
             <div className="info__group">
               <p className="label-info__group">User</p>
@@ -96,22 +100,18 @@ export const CreditCard = ({ id, name, phone, company, username, email, address,
           </a>
         </div>
       )}
-      {id && !rotate && (
-        <Fragment>
-          <div className={`container ${rotate ? 'hide-btn' : ''}`}>
+      {id && (
+        <>
+          <div className={`container container__button ${rotate ? 'hide-btn' : ''}`}>
             <button className="button" onClick={() => setActivateForm(!activateForm)}>
-              <i className="fas fa-pencil-alt"></i>
+              <MdEdit />
             </button>
             <button className="button btn-danger" onClick={setDelete}>
-              <i className="fas fa-times"></i>
+              <MdDelete />
             </button>
           </div>
-          {activateForm && !rotate && (
-            <Fragment>
-              <FormUser activateForm={activateForm} userId={id} />
-            </Fragment>
-          )}
-        </Fragment>
+          {activateForm && !rotate && <FormUser userId={id} />}
+        </>
       )}
     </div>
   )
