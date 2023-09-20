@@ -1,51 +1,43 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react'
 import '../assets/styles/components/FormUSer.scss'
-import { useDispatch, useSelector } from "react-redux";
-import { getUSerAction, updateUserAction } from "../redux/userDucks";
+import { useGetUserQuery, useUpdateUserMutation } from '../services'
+// import { getUSerAction, updateUserAction } from '../redux/userDucks'
 
 const FormUser = ({ activateForm, userId, setActivateForm }) => {
+  
   const [user, setUser] = useState({
-    id: "",
-    name: "",
-    phone: "",
-    company: "",
-    username: "",
-    email: "",
+    id: '',
+    name: '',
+    phone: '',
+    company: '',
+    username: '',
+    email: '',
     address: {
-      city: "",
+      city: '',
     },
-    website: "",
-  });
+    website: '',
+  })
 
-
-  const userData = useSelector((store) => store.users.user[0]);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUSerAction(userId));
-    setUser(userData);
-  }, [dispatch, userData]);
+  const { data: userData } = useGetUserQuery(userId)
+  const [updateUser] = useUpdateUserMutation()
 
   const updateInfo = (e) => {
-    e.preventDefault();
-    console.log(user);
-    dispatch(updateUserAction(user));
-    activateForm = !activateForm;
-  };
+    e.preventDefault()
+    updateUser(user)
+  }
 
   const inputChangedHandler = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target
 
     setUser((prevState) => ({
       ...prevState,
       [name]: value,
-    }));
-  };
+    }))
+  }
+
   return (
     <Fragment>
-      <form
-        action=""
-        className={`form-user ${activateForm ? "active-form" : ""}`}
-      >
+      <form action="" className={`form-user ${activateForm ? 'active-form' : ''}`}>
         <input
           type="text"
           className="input-form"
@@ -89,7 +81,7 @@ const FormUser = ({ activateForm, userId, setActivateForm }) => {
         <input
           type="text"
           className="input-form"
-          name="city"
+          name="address.city"
           placeholder="City"
           // value={user && user.address.city}
           onChange={(event) => inputChangedHandler(event)}
@@ -107,7 +99,7 @@ const FormUser = ({ activateForm, userId, setActivateForm }) => {
         </button>
       </form>
     </Fragment>
-  );
-};
+  )
+}
 
-export default FormUser;
+export default FormUser
