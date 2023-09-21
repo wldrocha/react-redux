@@ -1,24 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
 import '../assets/styles/components/Card.scss'
 
-
-const Card = ({title, subtitle , parraphText, link, linkText, linkColor, textAling, shadow, color})=>{
-    return (
-      <article
-        className={["article", shadow ? "card" : "", color ? "white" : ""].join(
-          " "
-        )}
-      >
-        <h3 className="title">{title}</h3>
-        <p>{parraphText}</p>
-        {link != undefined && linkText != undefined && (
-          <Link to={link} className={["button-card", color ? "btn-white" : ""].join(" ")}>
-            {linkText}
-          </Link>
-        )}
-      </article>
-    );
+export interface CardProps {
+  title: string
+  paragraphText: string
+  link?: string
+  linkText?: string
+  shadow?: boolean
+  color: string
 }
 
-export default Card;
+export const Card = ({ title, paragraphText, link, linkText, shadow = false, color }: CardProps) => {
+  return (
+    <article className={['article', shadow ? 'card' : '', color ? color : ''].join(' ')}>
+      <h3 className="title">{title}</h3>
+      <p>{paragraphText}</p>
+      {link != undefined && linkText != undefined && (
+        <Link to={link} className={['button-card', color ? 'btn-white' : ''].join(' ')}>
+          {linkText}
+        </Link>
+      )}
+    </article>
+  )
+}

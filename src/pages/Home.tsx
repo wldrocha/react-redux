@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 // import "../assets/styles/Home.scss";
-import Card from '../components/Card'
 import { CreditCard } from '../components/CreditCard'
+import Card from '../components/Card'
 
 const Home = () => {
   const hero = {
     title: 'Be Smart Take Card',
-    parraphText:
+    paragraphText:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.',
     link: 'users',
     linkText: 'User list',
@@ -24,7 +24,7 @@ const Home = () => {
 
   const infp = {
     title: 'Be Smart Take Card',
-    parraphText:
+    paragraphText:
       'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur voluptate ea illum similique unde, numquam, quaerat eos nisi officiis impedit. Maxime distinctio cum dolores architecto aliquam perferendis.',
     link: 'users',
     linkText: 'User list',
@@ -35,18 +35,18 @@ const Home = () => {
     {
       id: 1,
       title: 'Aplication Online',
-      parraphText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.',
+      paragraphText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.',
     },
     {
       id: 2,
       title: 'Get All Aproveal',
-      parraphText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.',
+      paragraphText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.',
       shadow: true,
     },
     {
       id: 3,
       title: 'Card Delivery',
-      parraphText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.',
+      paragraphText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi odio voluptatum consequatur vo.',
     },
   ]
 
